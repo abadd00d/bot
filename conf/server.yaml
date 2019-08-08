@@ -1,7 +1,0 @@
-server:
-  host: localhost
-  port: 8443
-telegram:
-  token: 921904937:AAHI4P00xY-T8_Dd1Uq7IfXeDsxiF6OUZ50
-  webhook: https://vzaytsev.ru/incoming
-  cert: ./conf/cert.pem
