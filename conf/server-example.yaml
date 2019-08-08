@@ -1,0 +1,7 @@
+server:
+  host: localhost
+  port: 8443
+telegram:
+  token: 
+  webhook: 
+  cert: 
