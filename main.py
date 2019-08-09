@@ -8,8 +8,8 @@ def setWebhook(bot, host, port, token, cert):
     bot.setWebhook(url='https://%s:%s/%s' % (host, port, token), certificate=open(cert, 'rb'))
 
 app = web.Application()
-setup_routes(app)
 app['config'] = config
+setup_routes(app)
 
 server_conf = app['config']['server']
 telegram_conf = app['config']['telegram']
