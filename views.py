@@ -1,7 +1,12 @@
 from aiohttp import web
 from queue import Queue  # in python 2 it should be "from Queue"
 from threading import Thread
-from telegram.ext import Dispatcher
+from telegram.ext import Dispatcher, CommandHandler
+
+def getWebhookStatus(telegram_token):
+    r = requests.get('https://api.telegram.org/bot' + telegram_token + '/getWebhookInfo')
+    json_data = r.json()
+    return json_data['ok']
 
 def setup(bot):
     # Create bot, update queue and dispatcher instances
@@ -23,6 +28,8 @@ def webhook(update):
 
 async def get_stats(request):
     text = 'OK'
+    telegram_token = request.app['config']['telegram']['token']
+    text = getWebhookStatus(telegram_token)
     return web.Response(text=text)
 
 async def receive_message_from_user(request):
