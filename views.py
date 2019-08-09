@@ -1,6 +1,7 @@
 from aiohttp import web
 from queue import Queue  # in python 2 it should be "from Queue"
 from threading import Thread
+import telegram
 from telegram.ext import Dispatcher, CommandHandler
 import requests
 
@@ -34,8 +35,11 @@ async def get_stats(request):
     return web.Response(text=str(text))
 
 async def receive_message_from_user(request):
-    update.message.reply_text("You said: " + user_says)
-    text = 'OK'
+    bot = request.app['bot']
+    t_json = (await request.json())
+    t_message = telegram.Update.de_json(t_json, bot)
+    chat_id = t_message.message.chat.id
+    bot.sendMessage(chat_id=chat_id, text='OK')
     return web.Response(text=text)
 
 async def send_message_to_user(request):
