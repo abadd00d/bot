@@ -15,7 +15,6 @@ server_conf = app['config']['server']
 telegram_conf = app['config']['telegram']
 
 app['bot'] = Bot(telegram_conf['token'])
-setup_routes(app)
 
 setWebhook(app['bot'], telegram_conf['host'], telegram_conf['port'], telegram_conf['token'], telegram_conf['cert'])
 setup(app['bot'])
