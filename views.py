@@ -39,7 +39,8 @@ async def receive_message_from_user(request):
     t_json = (await request.json())
     t_message = telegram.Update.de_json(t_json, bot)
     chat_id = t_message.message.chat.id
-    bot.sendMessage(chat_id=chat_id, text='OK')
+    text = 'OK'
+    bot.sendMessage(chat_id=chat_id, text=text)
     return web.Response(text=text)
 
 async def send_message_to_user(request):
