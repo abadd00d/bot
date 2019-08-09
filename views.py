@@ -2,6 +2,7 @@ from aiohttp import web
 from queue import Queue  # in python 2 it should be "from Queue"
 from threading import Thread
 from telegram.ext import Dispatcher, CommandHandler
+import requests
 
 def getWebhookStatus(telegram_token):
     r = requests.get('https://api.telegram.org/bot' + telegram_token + '/getWebhookInfo')
