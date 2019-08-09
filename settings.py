@@ -2,7 +2,7 @@ import pathlib
 import yaml
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
-config_path = BASE_DIR / 'httpbotserver' / 'conf' / 'server.yaml'
+config_path = BASE_DIR / 'bot' / 'conf' / 'server.yaml'
 
 def get_config(path):
     with open(path) as f:
