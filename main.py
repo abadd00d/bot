@@ -17,7 +17,7 @@ telegram_conf = app['config']['telegram']
 app['bot'] = Bot(telegram_conf['token'])
 
 
-setWebhook(app['bot'], server_conf['host'], server_conf['port'], telegram_conf['token'], telegram_conf['cert'])
+setWebhook(app['bot'], server_conf['host'], telegram_conf['port'], telegram_conf['token'], telegram_conf['cert'])
 setup(app['bot'])
 web.run_app(app, host=server_conf['host'] ,port=server_conf['port'])
 
