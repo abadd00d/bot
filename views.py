@@ -31,7 +31,7 @@ async def get_stats(request):
     text = 'OK'
     telegram_token = request.app['config']['telegram']['token']
     text = getWebhookStatus(telegram_token)
-    return web.Response(text=text)
+    return web.Response(text=str(text))
 
 async def receive_message_from_user(request):
     update.message.reply_text("You said: " + user_says)
